@@ -35,6 +35,7 @@ public class Situation implements Serializable{
 
 	public void setOut(){out += 1;}
 	public void resOut(){out = 0;}
+	public void resScore(){score = 0;}
 	public void setInning(){inning += 1;}
 	public void setTop(){top = !top;}
 	public void setR1(boolean val){r1 = val;}

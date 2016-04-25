@@ -52,17 +52,26 @@ public class BaseballGame extends HttpServlet {
 		HttpSession sessionBatResult = request.getSession();
 		String strResult;
 
-		InningScore inn = new InningScore();
 		HttpSession sessionInning = request.getSession();
-		sessionInning.setAttribute("inning", inn);
+		InningScore inn = new InningScore();
+		InningScore inn_temp;
+		inn_temp = (InningScore)sessionInning.getAttribute("inning");
+		if(inn_temp != null){
+			inn = inn_temp;
+		}
 
 		//試合開始時
 		if(action == null || action.equals("end")){
 			forwardPath = "/WEB-INF/playBall.jsp";
 			//sit = new Situation();
-			if(action == "end"){
+			if(action != null){
 				sessionBatResult.removeAttribute("result");
-				sessionSituation.removeAttribute("sit");
+				sessionSituation.removeAttribute("situation");
+				sessionInning.removeAttribute("inning");
+
+				//sessionBatResult.invalidate();
+				//sessionSituation.invalidate();
+				//sessionInning.invalidate();
 			}
 			//HttpSession sessionScorer = request.getSession();
 
@@ -75,14 +84,13 @@ public class BaseballGame extends HttpServlet {
 			if(sit_temp!=null){
 				sit = sit_temp;
 			}
-			System.out.println(sit);
 
 			AtBatLogic abl = new AtBatLogic();
 			BatResult batResult = new BatResult();
 			strResult = abl.getResult();
 			batResult.setResult(strResult);
 			SituationLogic.sitLogic(sit, strResult);
-			inn = (InningScore)sessionInning.getAttribute("inning");
+
 			Change.ChangeLogic(sit, inn);
 			sessionInning.setAttribute("inning", inn);
 			sessionBatResult.setAttribute("result", batResult);

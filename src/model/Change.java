@@ -14,6 +14,8 @@ public class Change {
 			else{
 				inn.setScore2(sit.getScore());
 			}
+			sit.resScore();
+			sit.setTop();
 		}
 		return inn;
 	}

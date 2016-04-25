@@ -5,10 +5,10 @@ public class SituationLogic {
 		if(result.equals("アウト")){
 			addOut(sit);
 		}
+		getScore(sit,result);
 		r3(sit,result);
 		r2(sit,result);
 		r1(sit,result);
-		getScore(sit,result);
 		return sit;
 	}
 
