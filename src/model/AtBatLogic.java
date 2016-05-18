@@ -24,6 +24,7 @@ public class AtBatLogic {
 		}
 	}
 
+
 	public String getResult(){
 		return strResult;
 	}
