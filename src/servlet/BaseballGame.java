@@ -20,7 +20,7 @@ import model.SituationLogic;
 /**
  * Servlet implementation class BaseballGame
  */
-@WebServlet(urlpatterns={"/BaseballGame"})
+@WebServlet(urlPatterns={"/BaseballGame"})
 public class BaseballGame extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
