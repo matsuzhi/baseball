@@ -22,7 +22,6 @@ public class AtBatLogic {
 		else{
 			strResult = "ホームラン";
 		}
-
 	}
 
 	public String getResult(){
