@@ -53,6 +53,7 @@ public class BaseballGame extends HttpServlet {
 		String strResult;
 
 		HttpSession sessionInning = request.getSession();
+		
 		InningScore inn = new InningScore();
 		InningScore inn_temp;
 		inn_temp = (InningScore)sessionInning.getAttribute("inning");
